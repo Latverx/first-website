@@ -1,24 +1,50 @@
+body {
+    background-color: rgb(144, 144, 144);
+    font-family: Arial, sans-serif;
+}
+
 h1 {
     color: blue;
 }
 
-p{
-    color: rgb(255, 196, 0);
+p {
+    color: rgb(0, 0, 0);
 }
 
-#arno{
+#arno {
     color: red;
     font-size: 20px;
 }
 
-.word{
+.word {
     color: blueviolet;
 }
 
-#superdestroyer{
-    transform: scale(0.2, 0.2) translate(-3700px, -2000px);
+/* Superdestroyer image */
+#superdestroyer {
+    transform: translate(600px, 225px);
+    width: 350px;
 }
 
-#helldiversII{
-    transform: translate(-55px, -890px) scale(0.6);
+/* GIF positioning (cleaned up) */
+#helldiversII {
+    transform: translate(500px, 320px);
+    width: 250px;
+}
+
+#demo {
+    transform: translate(170px, -200px);
+    width: 300px;
+}
+
+#button {
+    transform: translateY(5px);
+}
+
+#roll {
+    color: rgb(94, 26, 139);
+}
+
+#playercount {
+    transform: translate(270px, -34px);
 }

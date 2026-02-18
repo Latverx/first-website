@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Arnos erste Seite</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background-color:rgb(144, 144, 144);">
+<body>
+    <img src="elliott-rees-helldivers-2-ship.jpg"
+        alt="helldivers2 superdestroyer"
+        id="superdestroyer"
+        title="superdestroyer (helldivers II)">
+
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm0yaHFteG5xOTJsMHF0dGRqZzlneHoyNDl6cjZjNTUxc3k3bXpnbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MlyicdUndRbn5zUiAL/giphy.gif"
+         alt="Hello_World"
+         id="helldiversII">
     <h1>Hello, World!</h1>
-    <a href="https://www.google.com/">Hello World!</a>
+    <a href="https://youtu.be/dQw4w9WgXcQ">Hello World!</a>
+
     <p>Arnos erste Seite</p>
     <p id="arno">Arnos erste Seite</p>
     <p class="word">Arnos erste Seite</p>
-    <p>___________________________________</p>
-    <img src="elliott-rees-helldivers-2-ship.jpg" alt="helldivers2 superdestroyer", id="superdestroyer", title="superdestroyer (helldivers II)">
-    <br>
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm0yaHFteG5xOTJsMHF0dGRqZzlneHoyNDl6cjZjNTUxc3k3bXpnbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MlyicdUndRbn5zUiAL/giphy.gif" alt="Hello_World", id="helldiversII">
+    <button onclick="norrisjoke()" id="button">chuck norris joke</button>
+    <p id="demo"></p>
+    <input type="text" class="input">
+    <button onclick="input()">Check</button>
+    <p id="roll">click here</p>
+    <p>-</p>
+    <p>current players online (helldivers 2):</p>
+    <p id="playercount"></p>
+    
 
-</body>
-</html>
+    <script>
+
+        function players() {
+            fetch('https://api.helldiversstats.com/1.0/getPlayerCount')
+                .then(Response => {
+                    return Response.json();
+                })
+                .then(data => {
+                    document.getElementById("playercount").innerHTML = data.helldivers2.HD2TotalCount + " Players";
+                })
+        }
+        players()
+        const refreshInterval = 15000;
+        setInterval(players, refreshInterval);
+
+        function input() {
+                const inputElement = document.querySelector('.input');
+                const value = inputElement.value;
+
+                if (value === "rickrolled") {
+                    document.getElementById("roll").innerHTML = '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be" target="_blank" id="roll">Click here</a>';
+                }
+
+                if (value === "easteregg") {
+                    document.getElementById("roll").innerHTML = '<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8_S4nkW0EXr64tETBB_0Yib8K2OUriMrlMg&s" target="_blank" id="roll">Click here</a>';
+                }
+        }
+
+        function norrisjoke() {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(Response => {
+                    return Response.json();
+                })
+                .then(data => {
+                    document.getElementById("demo").innerHTML = data.value;
+                })
+            }
+    </script>
+
+    <!-- Image + Pong Game Section -->
+
+
+    
